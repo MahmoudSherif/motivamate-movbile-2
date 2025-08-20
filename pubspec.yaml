@@ -1,0 +1,61 @@
+name: motivamate
+description: A self-motivate mobile application that helps users stay motivated and achieve their goals.
+version: 1.0.0+1
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # UI & Animations
+  cupertino_icons: ^1.0.6
+  google_fonts: ^6.1.0
+  lottie: ^3.1.0
+  flutter_staggered_animations: ^1.1.1
+  
+  # State Management
+  provider: ^6.1.1
+  
+  # Database & Storage
+  cloud_firestore: ^4.15.8
+  firebase_auth: ^4.17.8
+  firebase_core: ^2.25.4
+  shared_preferences: ^2.2.2
+  
+  # Calendar & Date/Time
+  table_calendar: ^3.0.9
+  intl: ^0.18.1
+  
+  # Charts & Analytics
+  fl_chart: ^0.66.2
+  
+  # Image & Assets
+  cached_network_image: ^3.3.1
+  image_picker: ^1.0.7
+  
+  # Utils
+  uuid: ^4.2.1
+  url_launcher: ^6.2.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+
+flutter:
+  uses-material-design: true
+  
+  assets:
+    - assets/images/
+    - assets/animations/
+    - assets/quotes/
+    
+  fonts:
+    - family: Cairo
+      fonts:
+        - asset: assets/fonts/Cairo-Regular.ttf
+        - asset: assets/fonts/Cairo-Bold.ttf
+          weight: 700
