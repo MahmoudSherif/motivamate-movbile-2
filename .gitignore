@@ -1,0 +1,15 @@
+# Firebase configuration files (to be added by developer)
+google-services.json
+ios/Runner/GoogleService-Info.plist
+
+# Flutter specific
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# Android specific
+android/key.properties
+android/app/debug.keystore
+
+# iOS specific
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec

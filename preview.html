@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MotivaMate - Mobile App Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #334155 100%);
+            min-height: 100vh;
+            color: white;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Animated Stars Background */
+        .stars {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            animation: twinkle 3s infinite linear;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .phone-container {
+            position: relative;
+            z-index: 10;
+            max-width: 375px;
+            margin: 20px auto;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 25px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+            height: calc(100vh - 40px);
+        }
+
+        .status-bar {
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 14px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .app-header {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            background: #1A6B6B;
+            border-radius: 15px;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+        }
+
+        .app-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .app-subtitle {
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        .main-content {
+            padding: 20px;
+            height: calc(100% - 200px);
+            overflow-y: auto;
+        }
+
+        .feature-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        .feature-card h3 {
+            color: #1A6B6B;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .feature-card p {
+            font-size: 13px;
+            opacity: 0.8;
+            line-height: 1.4;
+        }
+
+        .bottom-nav {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.3);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .nav-item {
+            text-align: center;
+            font-size: 11px;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+
+        .nav-item.active {
+            opacity: 1;
+            color: #1A6B6B;
+        }
+
+        .nav-icon {
+            font-size: 20px;
+            margin-bottom: 3px;
+        }
+
+        .quote-bar {
+            position: absolute;
+            bottom: 70px;
+            left: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            animation: fadeQuote 3s infinite;
+        }
+
+        @keyframes fadeQuote {
+            0%, 90%, 100% { opacity: 1; }
+            10% { opacity: 0.3; }
+        }
+
+        .quote-text {
+            font-size: 12px;
+            margin-bottom: 4px;
+            font-style: italic;
+        }
+
+        .quote-author {
+            font-size: 10px;
+            opacity: 0.6;
+        }
+
+        /* Create animated stars */
+        .stars::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); opacity: 0.3; }
+            50% { transform: translateY(-20px); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    
+    <div class="phone-container">
+        <div class="status-bar">9:41 AM • ⚡ 100%</div>
+        
+        <div class="app-header">
+            <div class="logo">🚀</div>
+            <div class="app-title">MotivaMate</div>
+            <div class="app-subtitle">Your mobile motivation companion</div>
+        </div>
+
+        <div class="main-content">
+            <div class="feature-card">
+                <h3>📅 Calendar</h3>
+                <p>Plan your goals and track your progress with our intuitive calendar system. Add events and set reminders for your important tasks.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>✅ Tasks & Challenges</h3>
+                <p>Create personal tasks and join social challenges with friends. Compete in leagues and earn points for completed tasks.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>📝 Notes</h3>
+                <p>Modern note-taking with categories, search, and beautiful design. Capture your thoughts and organize your ideas.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>🎯 Achieve</h3>
+                <p>Focus timer with Pomodoro technique. Set goals, track progress, and build productive habits with timed focus sessions.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>💡 Inspiration</h3>
+                <p>Learn from history's greatest achievers. Discover stories of perseverance, innovation, and success from historical figures.</p>
+            </div>
+        </div>
+
+        <div class="quote-bar">
+            <div class="quote-text" id="quoteText">"The only way to do great work is to love what you do."</div>
+            <div class="quote-author" id="quoteAuthor">- Steve Jobs</div>
+        </div>
+
+        <div class="bottom-nav">
+            <div class="nav-item active">
+                <div class="nav-icon">📅</div>
+                <div>Calendar</div>
+            </div>
+            <div class="nav-item">
+                <div class="nav-icon">✅</div>
+                <div>Tasks</div>
+            </div>
+            <div class="nav-item">
+                <div class="nav-icon">📝</div>
+                <div>Notes</div>
+            </div>
+            <div class="nav-item">
+                <div class="nav-icon">👤</div>
+                <div>Profile</div>
+            </div>
+            <div class="nav-item">
+                <div class="nav-icon">🎯</div>
+                <div>Achieve</div>
+            </div>
+            <div class="nav-item">
+                <div class="nav-icon">💡</div>
+                <div>Inspire</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create animated stars
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const numStars = 50;
+
+            for (let i = 0; i < numStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.width = Math.random() * 3 + 1 + 'px';
+                star.style.height = star.style.width;
+                star.style.animationDelay = Math.random() * 3 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Rotate quotes
+        const quotes = [
+            { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
+            { text: "من جد وجد، ومن زرع حصد", author: "مثل عربي" },
+            { text: "Life is what happens to you while you're busy making other plans.", author: "John Lennon" },
+            { text: "العلم نور والجهل ظلام", author: "مثل عربي" },
+            { text: "The future belongs to those who believe in the beauty of their dreams.", author: "Eleanor Roosevelt" }
+        ];
+
+        let currentQuoteIndex = 0;
+
+        function rotateQuote() {
+            const quoteText = document.getElementById('quoteText');
+            const quoteAuthor = document.getElementById('quoteAuthor');
+            
+            currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+            const quote = quotes[currentQuoteIndex];
+            
+            quoteText.textContent = `"${quote.text}"`;
+            quoteAuthor.textContent = `- ${quote.author}`;
+        }
+
+        // Initialize
+        createStars();
+        setInterval(rotateQuote, 3000);
+    </script>
+</body>
+</html>
